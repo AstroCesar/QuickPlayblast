@@ -1,0 +1,18 @@
+string $activePanel = `getPanel -wf`;
+if (`modelEditor -q -nurbsCurves $activePanel` == 1) {  
+modelEditor -e -nurbsCurves 0 $activePanel;   
+modelEditor -e -motionTrails 0 $activePanel;  
+modelEditor -e -cameras 0 $activePanel;   
+modelEditor -e -lights 0 $activePanel;  
+modelEditor -e -locators 0 $activePanel; 
+//avi format  1920 1080 
+//This  format is active  
+playblast   -format avi -csd  -sequenceTime 0 -clearCache 1 -viewer 1 -showOrnaments 1 -fp 4 -percent 71 -compression "none" -quality 100 -widthHeight 1920 1080; currentTime 45 ;
+//QuickTime format  1920 1080
+//playblast   -format qt -csd  -sequenceTime 0 -clearCache 1 -viewer 1 -showOrnaments 1 -fp 4 -percent 71 -compression "none" -quality 100 -widthHeight 1920 1080; currentTime 45 ;  
+modelEditor -e -nurbsCurves 1 $activePanel;
+modelEditor -e -motionTrails 1 $activePanel;  
+modelEditor -e -lights 1 $activePanel;
+modelEditor -e -locators 1 $activePanel;}else {   modelEditor -e -nurbsCurves 1 $activePanel;   modelEditor -e -motionTrails 1 $activePanel;   modelEditor -e -lights 1 $activePanel;  modelEditor -e -locators 1 $activePanel;}
+//By AstroCesar
+//https://github.com/AstroCesar
